@@ -1,0 +1,40 @@
+extends layout
+block headBlock
+  link(rel='stylesheet', href='/stylesheets/board.css')
+  link(href="http://fonts.googleapis.com/css?family=Merienda+One",rel="stylesheet",type="text/css")
+  script(src='/jquery-ui/js/jquery-ui-1.10.4.custom.min.js')
+  script(src='/javascripts/resize.js')
+
+block content
+  .container-fluid
+    .row-fluid
+      .col-md-8
+        - algebraicSize = 6
+        - squareSize = 11
+        - iconSize = 60
+        - borderColor = '#204A87'
+        - boardSize = squareSize*8
+        - boardBackground = 'gray'
+        - blackSquare = '#58d'
+        - whiteSquare = 'white'
+        - letters = ['a','b','c','d','e','f','g','h']
+
+        div.boardMinWidth#boardContainer
+          div#algebraic(style='position:absolute; left:0px; top:0px; width:100%; height:100%;')
+            - for (var i = 0; i < 8; i++) 
+              - for (var j = 0; j < 2; j++)
+                - cur = (j == 0) ? 's-resize' : 'n-resize';
+                div(class=['letters','l'+i],style='cursor:'+cur+'; color:black; position:absolute;left:' + (algebraicSize + i*squareSize) + '%;top:' + j*(algebraicSize + boardSize) + '%; width:' + squareSize + '%; height:' + algebraicSize + '%; text-align:center; font-size:18px') #{letters[i]}
+                - cur = (j == 0) ? 'e-resize' : 'w-resize';
+                div(class=['numbers','n'+i],style='cursor:'+cur+'; color:black; position:absolute;top:' + (algebraicSize + i*squareSize) + '%;left:' + j*(algebraicSize + boardSize) + '%; height:' + squareSize + '%; width:' + algebraicSize + '%; text-align:center; font-size:18px') #{8-i}
+          div#boardDiv.orange-schema(style='position:absolute; left:' + algebraicSize + '%; top:' + algebraicSize + '%; width:' + boardSize + '%; height:' + boardSize + '%;')
+            - for (var i = 0; i < 8; i++) 
+              - for (var j = 0; j < 8; j++)
+                - filling = ((i+j)%2 == 0) ? whiteSquare : blackSquare
+                div(id='square' + (16*j+i),class=['square','square_'+((i+j)%2)],style='position:absolute; left:' + 12.5*i + '%; top:' + 12.5*j + '%; width: 12.5%; height: 12.5%;')
+            div#promotionDiv(style='position:absolute; background-color:white; visibility:hidden; width:' + 4*(2*12.5/3) + '%; height:' + 1*(2*12.5/3) + '%;')
+              - for (var i = 0; i < 4; i++)
+                div(class=['square','square_' + (i%2)],style='position:absolute; width:25%; height:100%; left:' + 25*i +'%;')
+                  div(id=i)
+          div#iconsContainer
+      .col-md-4

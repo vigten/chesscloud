@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/bootstrap3/css/bootstrap.min.css')
+    script(src='/javascripts/jquery-2.0.3.min.js')
+    block headBlock
+  body(style='padding-top: 100px;')
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+    block content

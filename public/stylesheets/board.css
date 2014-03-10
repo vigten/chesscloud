@@ -1,0 +1,85 @@
+body {
+  background-color: #e5e5e5;
+}
+.boardMinWidth {
+  position: relative;
+  min-width: 500px;
+  max-width: 750px;
+}
+.square_0 {
+  background-color: #f4f4e8;
+}
+.letters,
+.numbers {
+  font: 100 100px/1.2 'Merienda One', Helvetica, sans-serif;
+}
+.blue-schema .square_1 {
+  background-color: #4d6d92;
+}
+.red-schema .square_1 {
+  background-color: #cc4748;
+}
+.orange-schema .square_1 {
+  background-color: #ff4629;
+}
+.green-schema .square_1 {
+  background-color: #69924d;
+}
+.grey-schema .square_1 {
+  background-color: #808080;
+}
+.orange-schema .square_start {
+  background-color: #6495ed;
+}
+.orange-schema .square_end {
+  background-color: #36f;
+}
+.orange-schema .underline_1 {
+  background-color: #00a300;
+}
+.underline_0 {
+  background-color: #adff5c;
+}
+.orange-schema .underline-bad-0 {
+  background-color: #d24242;
+}
+.orange-schema .underline-bad-1 {
+  background-color: FireBrick;
+}
+.underline-good-0 {
+  background-color: #adff5c;
+}
+.orange-schema .underline-good-1 {
+  background-color: #00a300;
+}
+.squareTo_1 {
+  background-color: #4e9a06;
+}
+.squareTo_0 {
+  background-color: #8ae234;
+}
+.moveSpan {
+  color: inherit;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'pgn4web ChessSansAlpha', 'pgn4web Liberation Sans', sans-serif;
+  padding: 1px;
+  padding-left: 2px;
+  cursor: pointer;
+}
+.moveSpan:hover {
+  color: #214478;
+}
+.moveNumber {
+  color: inherit;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'pgn4web ChessSansAlpha', 'pgn4web Liberation Sans', sans-serif;
+  padding: 1px;
+}
+.opacity {
+  opacity: 0.2;
+}
+#boardDiv {
+  box-shadow: 0px 0px 5px #000;
+}
