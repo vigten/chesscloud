@@ -60,4 +60,9 @@ $(function () {
       $('#square' + (16*row+k)).toggleClass('underline_'+((row+k)%2));
     }
   }
+
+  $('#square0').click(function () {
+    var color = ['blue','orange','grey','green'][Math.floor(4*Math.random())];
+    $('#boardDiv').removeClass().addClass(color + '-schema');
+  });
 });
