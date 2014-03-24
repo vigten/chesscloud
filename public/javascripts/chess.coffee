@@ -104,7 +104,7 @@ class Piece
     fenChar
 
 ###
-class Chess.
+class chess.
   public variables:
     movesList is the list of moves
     kingsPosition is an array with the positions of the kings (usefull for test the checks)
@@ -121,7 +121,7 @@ class Chess.
     zIndex is an integer to enshure that the piece dragged is over the others
     pawnMoves is the number of consecutive moves of non pawn piece
 ###
-class Chess
+class chess
 
   @movesList = []
   @kingsPosition = [116, 4]

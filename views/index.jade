@@ -3,7 +3,9 @@ block headBlock
   link(rel='stylesheet', href='/stylesheets/board.css')
   link(href="http://fonts.googleapis.com/css?family=Merienda+One",rel="stylesheet",type="text/css")
   script(src='/jquery-ui/js/jquery-ui-1.10.4.custom.min.js')
+  script(src='/javascripts/underscore-min.js')
   script(src='/javascripts/chess.js')
+  script(src='/javascripts/chess-ui.js')
   script(src='/javascripts/resize.js')
 
 block content
@@ -28,7 +30,7 @@ block content
                 div(class=['letters','l'+i],style='cursor:'+cur+'; color:black; position:absolute;left:' + (algebraicSize + i*squareSize) + '%;top:' + j*(algebraicSize + boardSize) + '%; width:' + squareSize + '%; height:' + algebraicSize + '%; text-align:center; font-size:18px') #{letters[i]}
                 - cur = (j == 0) ? 'e-resize' : 'w-resize';
                 div(class=['numbers','n'+i],style='cursor:'+cur+'; color:black; position:absolute;top:' + (algebraicSize + i*squareSize) + '%;left:' + j*(algebraicSize + boardSize) + '%; height:' + squareSize + '%; width:' + algebraicSize + '%; text-align:center; font-size:18px') #{8-i}
-          div#boardDiv.orange-schema(style='position:absolute; left:' + algebraicSize + '%; top:' + algebraicSize + '%; width:' + boardSize + '%; height:' + boardSize + '%;')
+          div#boardDiv.green-schema(style='position:absolute; left:' + algebraicSize + '%; top:' + algebraicSize + '%; width:' + boardSize + '%; height:' + boardSize + '%;')
             - for (var i = 0; i < 8; i++) 
               - for (var j = 0; j < 8; j++)
                 - filling = ((i+j)%2 == 0) ? whiteSquare : blackSquare

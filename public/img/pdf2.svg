@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Sodipodi ("http://www.sodipodi.com/") -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100.01079"
+   id="svg1"
+   sodipodi:docname="pdf2.svg"
+   sodipodi:version="0.34"
+   version="1.0"
+   width="99.982437"
+   x="0"
+   y="0"
+   inkscape:version="0.48.3.1 r9886">
+  <metadata
+     id="metadata3">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Lemon SVG theme</dc:title>
+        <dc:description />
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>icon</rdf:li>
+            <rdf:li />
+            <rdf:li>lemon_theme_icon</rdf:li>
+            <rdf:li>mimetypes</rdf:li>
+            <rdf:li>icons</rdf:li>
+            <rdf:li>hash</rdf:li>
+            <rdf:li>computer</rdf:li>
+            <rdf:li>theme</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://www.openclipart.org">
+            <dc:title>Jose Hevia</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jose Hevia</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Jose Hevia</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date />
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     id="base"
+     showgrid="false"
+     fit-margin-left="2"
+     fit-margin-top="2"
+     fit-margin-right="2"
+     fit-margin-bottom="2"
+     inkscape:zoom="1.0788571"
+     inkscape:cx="-37.305528"
+     inkscape:cy="193.80566"
+     inkscape:window-width="1115"
+     inkscape:window-height="816"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g3016" />
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient842">
+      <stop
+         id="stop843"
+         offset="0"
+         style="stop-color:#0c6700;stop-opacity:1;" />
+      <stop
+         id="stop844"
+         offset="1"
+         style="stop-color:#a7daaf;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient53">
+      <stop
+         id="stop54"
+         offset="0"
+         style="stop-color:#f0ff00;stop-opacity:1;" />
+      <stop
+         id="stop55"
+         offset="1"
+         style="stop-color:#176f00;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient48">
+      <stop
+         id="stop49"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:0.7294;" />
+      <stop
+         id="stop50"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient51"
+       x1="0.51104099"
+       x2="0.880126"
+       xlink:href="#linearGradient842"
+       y1="0.60526901"
+       y2="0.80701798" />
+    <linearGradient
+       id="linearGradient52"
+       x1="0"
+       x2="1"
+       xlink:href="#linearGradient53"
+       y1="0"
+       y2="1" />
+    <radialGradient
+       cx="0.5"
+       cy="0.5"
+       fx="0.5"
+       fy="0.5"
+       id="radialGradient577"
+       r="0.5"
+       xlink:href="#linearGradient48" />
+    <radialGradient
+       cx="0.56782299"
+       cy="0.63158399"
+       fx="0.54574102"
+       fy="0.81579"
+       id="radialGradient845"
+       r="0.309724"
+       xlink:href="#linearGradient842" />
+    <radialGradient
+       cx="0.41444901"
+       cy="0.47657499"
+       fx="0.33460101"
+       fy="0.609375"
+       id="radialGradient846"
+       r="0.45242199"
+       xlink:href="#linearGradient842" />
+    <radialGradient
+       cx="0.74736798"
+       cy="0.148334"
+       fx="0.57894802"
+       fy="0.265625"
+       id="radialGradient614"
+       r="0.70696199"
+       xlink:href="#linearGradient48" />
+  </defs>
+  <g
+     id="g3016"
+     transform="translate(16.573509,16.440822)">
+    <path
+       inkscape:connector-curvature="0"
+       style="font-size:12px;fill:none;stroke:#214478;stroke-width:4.73000002;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path581"
+       d="m 59.795371,46.311805 c 1.51179,-0.85903 3.70959,-3.81281 0.92574,-4.76602 -11.706102,-2.19715 -47.130962,13.18487 -49.993778,15.25102 -4.1294578,2.32775 -7.5806442,6.51441 -5.0919677,7.62547 1.8701069,1.36189 6.4668637,2.71967 10.8782857,-3.09789 2.558513,-2.92361 9.639957,-13.51126 10.415362,-16.68085 2.356007,-5.89198 8.092389,-29.45098 8.795234,-32.88478 0.449153,-2.4772396 0.949592,-8.0284294 -1.620191,-10.0083794 -1.282808,-0.73065 -2.476128,0.45258 -3.240333,1.90644 -2.897446,8.3304494 4.310337,19.3225194 5.554889,20.9699694 2.384362,3.9162 11.508735,16.37409 15.044428,20.4935 2.578555,2.36979 6.432791,3.02929 8.332331,1.19152 z" />
+  </g>
+  <path
+     sodipodi:type="arc"
+     style="fill:none;stroke:#214478;stroke-width:3.81001616;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     id="path2987"
+     sodipodi:cx="47.477169"
+     sodipodi:cy="45.971519"
+     sodipodi:rx="43.941635"
+     sodipodi:ry="43.689098"
+     d="m 91.418804,45.971519 a 43.941635,43.689098 0 1 1 -87.8832701,0 43.941635,43.689098 0 1 1 87.8832701,0 z"
+     transform="matrix(1.0468432,0,1.3835087e-8,1.0528942,0.29887916,1.6051647)" />
+</svg>

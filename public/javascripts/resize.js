@@ -65,4 +65,8 @@ $(function () {
     var color = ['blue','orange','grey','green'][Math.floor(4*Math.random())];
     $('#boardDiv').removeClass().addClass(color + '-schema');
   });
+
+  var cui = new chessUI();
+  cui.start('rnbqkbnr\/pppppppp\/8\/8\/8\/8\/PPPPPPPP\/RNBQKBNR w KQkq - 0 1')
+
 });
