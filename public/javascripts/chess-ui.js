@@ -13,7 +13,7 @@ function chessUI() {
   this.chess = new chess();
   this.restart = function () {
     var self = this;
-    $('.pgn').html('');
+    $('#pgn-container').html('');
     actualMoveIndex = 0;
     self.clarUnderlines();
     self.chess.restart();
@@ -174,7 +174,7 @@ function chessUI() {
     jQuery('<span>', {
       id : 'move_0',
       'class' : 'moveSpan active-move'
-    }).html('<span class="glyphicon glyphicon-th"></span>').data('n',0).click(function () {self.focusOn($(this).data('n'));}).appendTo('.pgn');
+    }).html('<span class="glyphicon glyphicon-th"></span>').data('n',0).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
     //$('.comment').hide();
     $('#add-comment').click(function () {
       setEndOfContenteditable($('.comment')[0]);
@@ -222,12 +222,12 @@ function chessUI() {
         var PGNmove = self.chess.move2PGN(start,end,(cp != 0),otherMoves);
         if (self.chess.turn == 1) {
           // PGNmove = (self.movesList.length + 1)/2  + '. ' + PGNmove;
-          $('.pgn').append('<span class="moveNumber">' + (self.chess.movesList.length + 1)/2  + '.</span>');
+          $('#pgn-container').append('<span class="moveNumber">' + (self.chess.movesList.length + 1)/2  + '.</span>');
         }
         jQuery('<span>', {
           id : 'move_' + self.movesList.length - 1,
           'class' : 'moveSpan'
-        }).text(PGNmove).data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('.pgn');
+        }).text(PGNmove).data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
         
         actualIsPromotion = false;
       });
@@ -304,12 +304,12 @@ function chessUI() {
             self.chess.findLegalMoves();
             var PGNmove = self.chess.move2PGN(start,end,(cp != 0),otherMoves);
             if (self.chess.turn == 1) {
-              $('.pgn').append('<span class="moveNumber">' + (self.chess.movesList.length )/2  + '.</span>');
+              $('#pgn-container').append('<span class="moveNumber">' + (self.chess.movesList.length )/2  + '.</span>');
             }
             jQuery('<span>', {
               id : 'move_' + (self.chess.movesList.length - 1),
               'class' : 'moveSpan'
-            }).text(PGNmove + ' ').data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('.pgn');
+            }).text(PGNmove + ' ').data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
           }
         }
         else {
