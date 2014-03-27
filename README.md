@@ -19,4 +19,6 @@ Installation
 Demo
 ----
 
-After installation start the server with coffee server.coffee, open a browser at http://127.0.0.1:3000/ and enjoy it!
+After installation start the server with 
+`coffee server.coffee`, 
+open a browser at http://127.0.0.1:3000/ and enjoy it!
