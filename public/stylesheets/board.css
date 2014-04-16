@@ -188,14 +188,18 @@ body {
   height: 300px;
   background-color: #fff;
   margin-top: 50px;
+  padding: 20px;
+  box-shadow: 0px 0px 2px #000;
+}
+#move_0 {
+  margin-right: 5px;
 }
 .moveSpan {
   color: inherit;
   text-align: center;
   font-size: 16px;
   font-family: 'pgn4web ChessSansAlpha', 'pgn4web Liberation Sans', sans-serif;
-  padding: 1px;
-  padding-left: 2px;
+  padding: 1px 3px;
   cursor: pointer;
 }
 .moveSpan:hover {
@@ -213,4 +217,8 @@ body {
 }
 #boardDiv {
   box-shadow: 0px 0px 5px #000;
+}
+.active-move {
+  background-color: #7eacdd;
+  border-radius: 4px;
 }

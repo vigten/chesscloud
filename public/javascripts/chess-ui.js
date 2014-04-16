@@ -78,7 +78,7 @@ function chessUI() {
       $('#square' + start).addClass('square_start');
       $('#square' + end).addClass('square_end');
     }
-    $('.comment').html(self.chess.movesList[moveIndex].comment);
+    $('#comments-container').html(self.chess.movesList[moveIndex].comment);
     actualMoveIndex = moveIndex;
     //draw the pieces
     self.drawPiece();
@@ -177,10 +177,10 @@ function chessUI() {
     }).html('<span class="glyphicon glyphicon-th"></span>').data('n',0).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
     //$('.comment').hide();
     $('#add-comment').click(function () {
-      setEndOfContenteditable($('.comment')[0]);
+      setEndOfContenteditable($('#comments-container')[0]);
     });
-    $('.comment').focusout(function () {
-      self.chess.movesList[actualMoveIndex].comment = $('.comment').html();
+    $('#comments-container').focusout(function () {
+      self.chess.movesList[actualMoveIndex].comment = $('#comments-container').html();
       console.log(self.chess.movesList);
     });
   };
@@ -263,7 +263,7 @@ function chessUI() {
 
           //CLEAR classes
           self.clarUnderlines();
-          $('.comment').html('');
+          $('#comments-container').html('');
 
           if (self.chess.position[end] != 0) $('#square' + end + ' div:visible').remove();
           if (pieceType == 'KING') {
@@ -310,6 +310,8 @@ function chessUI() {
               id : 'move_' + (self.chess.movesList.length - 1),
               'class' : 'moveSpan'
             }).text(PGNmove + ' ').data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
+            $(".active-move").removeClass('active-move');
+            $('#move_' + (self.chess.movesList.length - 1)).addClass('active-move');
           }
         }
         else {
