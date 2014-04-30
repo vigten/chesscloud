@@ -1,10 +1,11 @@
 body {
-  background-color: #e5e5e5;
+  background-color: #f9f9f9;
 }
 .boardMinWidth {
   position: relative;
   min-width: 500px;
   max-width: 750px;
+  margin-left: auto;
 }
 .square_0 {
   background-color: #f4f4e8;
@@ -184,12 +185,13 @@ body {
 }
 #pgn-container,
 #comments-container {
-  width: 100%;
+  width: 400px;
   height: 300px;
   background-color: #fff;
   margin-top: 50px;
   padding: 20px;
   box-shadow: 0px 0px 2px #000;
+  margin-right: auto;
 }
 #move_0 {
   margin-right: 5px;
@@ -202,7 +204,7 @@ body {
   padding: 1px 3px;
   cursor: pointer;
 }
-.moveSpan:hover {
+.moveSpanhover {
   color: #214478;
 }
 .moveNumber {
