@@ -1,10 +1,11 @@
 body {
-  background-color: #e5e5e5;
+  background-color: #f9f9f9;
 }
 .boardMinWidth {
   position: relative;
   min-width: 500px;
   max-width: 750px;
+  margin-left: auto;
 }
 .square_0 {
   background-color: #f4f4e8;
@@ -184,12 +185,23 @@ body {
 }
 #pgn-container,
 #comments-container {
-  width: 100%;
+  width: 400px;
   height: 300px;
   background-color: #fff;
   margin-top: 50px;
   padding: 20px;
   box-shadow: 0px 0px 2px #000;
+  margin-right: auto;
+  overflow-y: auto;
+  text-align: justify;
+}
+#white-player,
+#black-player {
+  font-size: 16px;
+  font-weight: bold;
+}
+#result-pgn {
+  font-weight: bold;
 }
 #move_0 {
   margin-right: 5px;
@@ -197,19 +209,19 @@ body {
 .moveSpan {
   color: inherit;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'pgn4web ChessSansAlpha', 'pgn4web Liberation Sans', sans-serif;
   padding: 1px 3px;
   cursor: pointer;
 }
-.moveSpan:hover {
+.moveSpanhover {
   color: #214478;
 }
 .moveNumber {
   color: inherit;
   text-align: center;
-  font-size: 16px;
-  font-family: 'pgn4web ChessSansAlpha', 'pgn4web Liberation Sans', sans-serif;
+  font-size: 14px;
+  font-family: 'Merienda One', Helvetica, sans-serif;
   padding: 1px;
 }
 .opacity {

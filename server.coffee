@@ -2,6 +2,7 @@ require 'coffee-script'
 express = require 'express'
 routes 	= require './routes'
 user 	= require './routes/user'
+games  = require './routes/games'
 http 	= require 'http'
 path 	= require 'path'
 _ 		= require 'underscore'
@@ -27,6 +28,7 @@ if 'development' is app.get('env')
 
 app.get '/', routes.index
 app.get '/users', user.list
+app.get '/test', games.test
 
 http.createServer(app).listen(app.get('port'), ->
   console.log "Express server listening on port #{app.get('port')}"
