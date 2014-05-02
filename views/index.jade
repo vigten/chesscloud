@@ -6,9 +6,12 @@ block headBlock
   link(rel='stylesheet', href='/fonts/pgn4web-font-ChessSansAlpha.css')
   script(src='/jquery-ui/js/jquery-ui-1.10.4.custom.min.js')
   script(src='/javascripts/underscore-min.js')
+  script(type='text/javascript')
+    | var _GAME = !{JSON.stringify(game)};
   script(src='/javascripts/chess.js')
   script(src='/javascripts/chess-ui.js')
   script(src='/javascripts/resize.js')
+  
 
 block content
   .container-fluid
@@ -44,4 +47,13 @@ block content
           div#iconsContainer
       .col-md-4
         div#pgn-container
+          div#meta-pgn
+            div#player
+              span#white-player 
+              |  - 
+              span#black-player
+            div#date
+
+          div#moves-pgn
         div#comments-container(contenteditable=true)
+

@@ -67,6 +67,7 @@ $(function () {
   });
 
   var cui = new chessUI();
-  cui.start('rnbqkbnr\/pppppppp\/8\/8\/8\/8\/PPPPPPPP\/RNBQKBNR w KQkq - 0 1')
+  cui.start('rnbqkbnr\/pppppppp\/8\/8\/8\/8\/PPPPPPPP\/RNBQKBNR w KQkq - 0 1');
+  if (_GAME) cui.viewGame(_GAME);
 
 });

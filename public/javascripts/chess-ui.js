@@ -13,7 +13,7 @@ function chessUI() {
   this.chess = new chess();
   this.restart = function () {
     var self = this;
-    $('#pgn-container').html('');
+    $('#moves-pgn').html('');
     actualMoveIndex = 0;
     self.clarUnderlines();
     self.chess.restart();
@@ -54,8 +54,39 @@ function chessUI() {
   };
 
   this.parsePGN = function (pgnText) {
-
+    // FIORDA
   };
+
+  this.viewGame = function (game) {
+    var self = this;
+    var whitePlayer = game.white;
+    var blackPlayer = game.black;
+    var result = game.result;
+    var when = game.date;
+    $('#white-player').text(whitePlayer);
+    $('#black-player').text(blackPlayer);
+    $('#date').text(when);
+    var movesList = game.moves;
+    for (var i = 0; i < movesList.length; i++) {
+      var _move = movesList[i];
+      var _transformedMove = this.chess.pgn2move(_move);
+      var cap = this.chess.executeMove(_transformedMove);
+      _transformedMove.fen = this.chess.getFEN();
+      this.chess.movesList.push(_transformedMove);
+      this.chess.findLegalMoves();         
+      if (this.chess.turn == 1) {
+        $('#moves-pgn').append('<span class="moveNumber">' + (this.chess.movesList.length)/2  + '.</span>');
+      }
+      jQuery('<span>', {
+        id : 'move_' + this.chess.movesList.length,
+        'class' : 'moveSpan'
+      }).text(_move).data('n',this.chess.movesList.length).click(function () {self.focusOn($(this).data('n'));}).appendTo('#moves-pgn');
+      jQuery('<span>').text(' ').appendTo('#moves-pgn');
+    }
+    jQuery('<span>', {
+      id : 'result-pgn',
+    }).text(result).appendTo('#moves-pgn');
+  }
 
   // show the position after the move at index moveIndex
   this.focusOn = function (moveIndex) {
@@ -174,7 +205,7 @@ function chessUI() {
     jQuery('<span>', {
       id : 'move_0',
       'class' : 'moveSpan active-move'
-    }).html('<span class="glyphicon glyphicon-th"></span>').data('n',0).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
+    }).html('<span class="glyphicon glyphicon-th"></span>').data('n',0).click(function () {self.focusOn($(this).data('n'));}).appendTo('#moves-pgn');
     //$('.comment').hide();
     $('#add-comment').click(function () {
       setEndOfContenteditable($('#comments-container')[0]);
@@ -222,12 +253,12 @@ function chessUI() {
         var PGNmove = self.chess.move2PGN(start,end,(cp != 0),otherMoves);
         if (self.chess.turn == 1) {
           // PGNmove = (self.movesList.length + 1)/2  + '. ' + PGNmove;
-          $('#pgn-container').append('<span class="moveNumber">' + (self.chess.movesList.length + 1)/2  + '.</span>');
+          $('#moves-pgn').append('<span class="moveNumber">' + (self.chess.movesList.length + 1)/2  + '.</span>');
         }
         jQuery('<span>', {
           id : 'move_' + self.movesList.length - 1,
           'class' : 'moveSpan'
-        }).text(PGNmove).data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
+        }).text(PGNmove).data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#moves-pgn');
         
         actualIsPromotion = false;
       });
@@ -304,12 +335,12 @@ function chessUI() {
             self.chess.findLegalMoves();
             var PGNmove = self.chess.move2PGN(start,end,(cp != 0),otherMoves);
             if (self.chess.turn == 1) {
-              $('#pgn-container').append('<span class="moveNumber">' + (self.chess.movesList.length )/2  + '.</span>');
+              $('#moves-pgn').append('<span class="moveNumber">' + (self.chess.movesList.length )/2  + '.</span>');
             }
             jQuery('<span>', {
               id : 'move_' + (self.chess.movesList.length - 1),
               'class' : 'moveSpan'
-            }).text(PGNmove + ' ').data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#pgn-container');
+            }).text(PGNmove + ' ').data('n',self.chess.movesList.length - 1).click(function () {self.focusOn($(this).data('n'));}).appendTo('#moves-pgn');
             $(".active-move").removeClass('active-move');
             $('#move_' + (self.chess.movesList.length - 1)).addClass('active-move');
           }
