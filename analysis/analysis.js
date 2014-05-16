@@ -1,8 +1,48 @@
 var winston = require('winston');
 var spawn = require('child_process').spawn;
 
-winston.add(winston.transports.File, { filename: 'analysis.log' });
+var log = {
+  'logger' : {
+    'levels': {
+      'detail': 0,
+      'trace': 1,
+      'debug': 2,
+      'info': 3,
+      'warn': 4,
+      'error': 5
+    },
+    'colors': {
+      'detail': 'grey',
+      'trace': 'white',
+      'debug': 'blue',
+      'info': 'green',
+      'warn': 'yellow',
+      'error': 'red'
+    },
+  }
+};
+ 
+function getLogger() {
+  var logger = new (winston.Logger)({
+    'transports': [
+    new (winston.transports.Console)(
+    {
+      'level': 'detail',
+      'colorize': true
+    }),
+    new (winston.transports.File)(
+    {
+      'filename': 'analysis.log'
+    })]
+  });
 
+  logger.setLevels(log.logger.levels);
+  winston.addColors(log.logger.colors);
+
+  return logger;
+}
+
+var logger = getLogger();
 
 
 var games = [
@@ -44,12 +84,12 @@ function msToTime(milliseconds) {
 
 function analyzeGame(gamesList) {
   if (gamesList.length == 0) {
-    winston.info('games list is empty')
+    logger.debug('games list is empty')
     return true;
   }
   var game = gamesList.pop() 
   var startDate = new Date();
-  var movedepth = 10;
+  var movedepth = 17;
   var playedMoves = '';
   var infolines = 'score cp ?';
   var count = 0;
@@ -58,13 +98,13 @@ function analyzeGame(gamesList) {
   var betterMoves = [];
   var analysis = [];
 
-  winston.info('start analysis', {'gameId': game.id});
+  logger.info('start analysis', {'gameId': game.id, 'depth': movedepth});
   uci.stderr.on('data', function (data) {
-    winston.warn('stderr: ' + data, {'gameId': game.id});
+    logger.warn('stderr: ' + data, {'gameId': game.id, 'depth': movedepth});
   });
 
   uci.on('close', function (code) {
-    winston.info('child process exited with code ' + code, {'gameId': game.id, 'depth': movedepth});
+    logger.info('child process exited with code ' + code, {'gameId': game.id, 'depth': movedepth});
     analyzeGame(gamesList);
   });
 
@@ -94,9 +134,10 @@ function analyzeGame(gamesList) {
       });
       if (count > 0) {
         analysis[count - 1].scoreAfter = score[0].replace(/(\r\n|\n|\r)/gm,"") + ' ' + sign * score[1];
+        logger.debug('#' + count, analysis[count - 1]);
         var lostCP = -1*sign*(parseInt(analysis[count - 1].scoreAfter.split(' ')[1]) - parseInt(analysis[count - 1].scoreBefore.split(' ')[1]));
         if (analysis[count - 1].move != analysis[count - 1].better && lostCP < -50) {
-          console.log((count - 1) + '\t' + (-1*sign*(parseInt(analysis[count - 1].scoreAfter.split(' ')[1]) - parseInt(analysis[count - 1].scoreBefore.split(' ')[1]))));
+          logger.detail('this is a bad move! the player lost ' + (-1*sign*(parseInt(analysis[count - 1].scoreAfter.split(' ')[1]) - parseInt(analysis[count - 1].scoreBefore.split(' ')[1]))) + ' cp.');
         }
       }
       count++;
@@ -104,8 +145,8 @@ function analyzeGame(gamesList) {
         uci.stdin.write('quit\n');
         var endDate = new Date();
         var time = endDate - startDate;
-        winston.info('last position value is ' + analysis[count - 1].scoreBefore, {'gameId': game.id});
-        winston.info('analysis finished: analyzed ' + game.moves.length + ' in ' + msToTime(time), {'gameId': game.id});
+        logger.info('last position value is ' + analysis[count - 1].scoreBefore, {'gameId': game.id, 'depth': movedepth});
+        logger.info('analysis finished: analyzed ' + game.moves.length + ' in ' + msToTime(time), {'gameId': game.id, 'depth': movedepth});
         return;
       }
       playedMoves = game.moves.slice(0,count).join(' ');
